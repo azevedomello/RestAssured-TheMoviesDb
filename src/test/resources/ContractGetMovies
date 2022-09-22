@@ -1,0 +1,137 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "id",
+        "results"
+    ],
+    "properties": {
+        "id": {
+            "type": "integer",
+            "default": 0,
+            "title": "The id Schema",
+            "examples": [
+                76341
+            ]
+        },
+        "results": {
+            "type": "array",
+            "default": [],
+            "title": "The results Schema",
+            "items": {
+                "type": "object",
+                "title": "A Schema",
+                "required": [
+                    "iso_639_1",
+                    "iso_3166_1",
+                    "name",
+                    "key",
+                    "published_at",
+                    "site",
+                    "size",
+                    "type",
+                    "official",
+                    "id"
+                ],
+                "properties": {
+                    "iso_639_1": {
+                        "type": "string",
+                        "title": "The iso_639_1 Schema",
+                        "examples": [
+                            "en"
+                        ]
+                    },
+                    "iso_3166_1": {
+                        "type": "string",
+                        "title": "The iso_3166_1 Schema",
+                        "examples": [
+                            "US"
+                        ]
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "The name Schema",
+                        "examples": [
+                            "Official Retaliate Trailer [HD]",
+                            "Official Main Trailer [HD]",
+                            "Official Theatrical Teaser Trailer [HD]",
+                            "Comic-Con First Look [HD]"
+                        ]
+                    },
+                    "key": {
+                        "type": "string",
+                        "title": "The key Schema",
+                        "examples": [
+                            "MonFNCgK4WE",
+                            "hEJnMQG9ev8",
+                            "YWNWi-ZWL3c",
+                            "akX3Is3qBpw"
+                        ]
+                    },
+                    "published_at": {
+                        "type": "string",
+                        "title": "The published_at Schema",
+                        "examples": [
+                            "2015-04-29T16:00:36.000Z",
+                            "2015-03-31T17:00:04.000Z",
+                            "2014-12-10T18:00:00.000Z",
+                            "2014-07-27T17:00:01.000Z"
+                        ]
+                    },
+                    "site": {
+                        "type": "string",
+                        "title": "The site Schema",
+                        "examples": [
+                            "YouTube"
+                        ]
+                    },
+                    "size": {
+                        "type": "integer",
+                        "title": "The size Schema",
+                        "examples": [
+                            1080
+                        ]
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "The type Schema",
+                        "examples": [
+                            "Trailer",
+                            "Teaser"
+                        ]
+                    },
+                    "official": {
+                        "type": "boolean",
+                        "title": "The official Schema",
+                        "examples": [
+                            true
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "title": "The id Schema",
+                        "examples": [
+                            "5bcd2702c3a3682863018582",
+                            "5bcd26f9925141612a0157ce",
+                            "5bcd26ef9251416126015b7d",
+                            "5bcd26e39251416131016aba"
+                        ]
+                    }
+                },
+                "examples": [{
+                    "iso_639_1": "en",
+                    "iso_3166_1": "US",
+                    "name": "Official Retaliate Trailer [HD]",
+                    "key": "MonFNCgK4WE",
+                    "published_at": "2015-04-29T16:00:36.000Z",
+                    "site": "YouTube",
+                    "size": 1080,
+                    "type": "Trailer",
+                    "official": true,
+                    "id": "5bcd2702c3a3682863018582"
+                }]
+            }
+}}}
