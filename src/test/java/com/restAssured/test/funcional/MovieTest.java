@@ -1,18 +1,17 @@
-package com.restAssured.test;
-
+package com.restAssured.test.funcional;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
-
 import com.restAssured.core.BaseTest;
+import com.restAssured.test.mass.DataMass;
 import io.qameta.allure.*;
-import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 @Feature("Movies API")
 public class MovieTest extends BaseTest {
+
     @Story("Show the movies registered")
     @Issue("http://google.com")
-    @Test(description = "descrição do teste")
+ //   @Test(description = "descrição do teste")
     @Description("Should be able to find all available videos")
     public void validateIdReturned() {
         given().
@@ -27,13 +26,14 @@ public class MovieTest extends BaseTest {
                         "5bcd26ef9251416126015b7d", "5bcd26e39251416131016aba"))
 
                 // It has to be in the same order
-                .body("results.id", contains("5bcd2702c3a3682863018582", "5bcd26f9925141612a0157ce","5bcd26ef9251416126015b7d", "5bcd26e39251416131016aba"),
+                .body("results.id", contains("5bcd2702c3a3682863018582", "5bcd26f9925141612a0157ce", "5bcd26ef9251416126015b7d", "5bcd26e39251416131016aba"),
                         "results.id", everyItem(startsWith("5bcd")))
         ;
     }
+
     @Story("Show the movies registered")
     @TmsLink("www.globo.com")
-    @Test
+ //   @Test
     @Description("Should be able to check the amount of videos")
     @Step
     public void validateQuantityReturned() {
@@ -51,4 +51,20 @@ public class MovieTest extends BaseTest {
                         "results[0]", hasEntry("id", "5bcd2702c3a3682863018582"))
         ;
     }
+
+    @Description("Should be able to find all available videos")
+    @Test(dataProvider = "dtCodeFilms", dataProviderClass = DataMass.class)
+    public void validateIdReturnedWithDataProvider(String idFilms) {
+        given().
+                basePath(idFilms+"/videos").
+                when().
+                get().
+                then()
+                .log().all()
+                .statusCode(200)
+                .body("results.site", contains("YouTube"),
+                        "results.id", hasSize(1));
+    }
+
+
 }

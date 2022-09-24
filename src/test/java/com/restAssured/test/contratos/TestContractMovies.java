@@ -5,9 +5,13 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Issue;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.hasSize;
 
 @Feature("TestContract APIs")
 public class TestContractMovies extends BaseTest{
@@ -23,4 +27,8 @@ public class TestContractMovies extends BaseTest{
                     .body(matchesJsonSchemaInClasspath("ContractGetMovies"))
             ;
         }
+
+
+
+
 }
